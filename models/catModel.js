@@ -29,7 +29,7 @@ const getCat = async (params) => {
 const addCat = async (params) => {
   try {
     const [rows] = await promisePool.execute(
-        'INSERT INTO wop_cat (name, age, weight, owner, filename) VALUES (?, ?, ?, ?, ?);',
+        'INSERT INTO wop_cat (name, age, weight, owner, filename, coords) VALUES (?, ?, ?, ?, ?, ?);',
         params,
     );
     return rows;
@@ -42,7 +42,7 @@ const addCat = async (params) => {
 const updateCat = async (params) => {
     try {
         const [rows] = await promisePool.execute(
-            "UPDATE wop_cat SET `name`= '?', `age`='?', `weight`='?', `owner`='?' WHERE `cat_id` = '?';",
+            "UPDATE wop_cat SET `name`= '?', `age`='?', `weight`='?', `owner`='?' WHERE `wop_cat.cat_id` = '?';",
             params,
         );
         return rows;

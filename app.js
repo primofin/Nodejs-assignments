@@ -9,6 +9,8 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 
 app.use(express.static('upload'));
+app.use('/thumbnails', express.static('thumbnails'));
+
 
 const catRoute = require('./routes/catRoute');
 const userRoute = require('./routes/userRoute');
