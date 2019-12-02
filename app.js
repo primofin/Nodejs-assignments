@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3000;
+//const require = ('./week2_public_html/index5.html');
 
 app.use(cors());
 app.use(express.json()); // for parsing application/json

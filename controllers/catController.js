@@ -49,14 +49,17 @@ const cat_update_put = async (req, res) => {
         req.body.age,
         req.body.weight,
         req.body.owner,
+        req.body.id,
     ];
-    const response = await catModel.updateCat(params);
-    await res.json(response);
+    console.log('update', params);
+    const user = await catModel.updateCat(params);
+    await res.json(user);
 };
 
 const cat_delete = async (req, res) => {
     const params = [req.params.id];
-    const cat = await catModel.getCat(params);
+    console.log('delete', params);
+    const cat = await catModel.deleteCat(params);
     await res.json(cat);
 };
 
